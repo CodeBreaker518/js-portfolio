@@ -35,6 +35,20 @@ module.exports = {
         generator: {
           filename: 'static/images/[hash][ext][query]'
         }
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10_000,
+            mimetype: 'application/font-woff',
+            name: '[name].[ext]',
+            outputPath: './assets/fonts',
+            publicPath: './assets/fonts',
+            esModule: false,
+          },
+        }
       }
     ]
   },
